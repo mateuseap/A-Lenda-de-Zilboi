@@ -375,7 +375,7 @@ int main(){
         return -1;
 	}
     //Agora vamos criar a nossa janela. Largura e Altura em pixels, o título é uma string.
-    if (!windowInit(LARGURA, ALTURA, "ZILBOI")){
+    if (!windowInit(LARGURA, ALTURA, "A lenda de Zilboi")){
 	    return -1;
 	}
     //Agora inicializamos nosso teclado e mouse, para que a janela responda às entradas deles
