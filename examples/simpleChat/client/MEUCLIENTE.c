@@ -20,7 +20,7 @@
 #define BUFFER_SIZE 100
 #define LOGIN_MAX_SIZE 13
 #define MAX_HP 500
-#define MAX_CLIENTS 4
+#define MAX_CLIENTS 2
 
 #define ALTURA 630
 #define LARGURA 940
@@ -42,6 +42,7 @@ typedef struct Player{
     char personagem; //é um personagem de define igual BOI_X, em que X está no intervalo [1,4]
     int blocked; //número de frames em que o boi vai executar uma animacao de levar dano, ficando sem poder executar acoes
     char direcao; //indica a direcao que o boi está virado
+	char direcao2;
 	Pos posicao; //posicao (x,y) que o boi está
 }Player;
 
@@ -75,6 +76,7 @@ Player defaultPlayer(int id_player){
 	  break;
   }
   temp.direcao = DIREITA;
+  temp.direcao = BAIXO;
   return temp;
 }
 
@@ -216,65 +218,81 @@ void printCharacter(int boi, float largura, float altura){
 				break;
 		}
 }
-void printGameCharacter(int boi, float largura, float altura, char estado, char direcao){
+void printGameCharacter(int boi, float largura, float altura, char estado, char direcao, char direcao2, char ataque){
 	if(estado == DIREITA){
 		switch(boi){
 			case BOI_1:
-				al_draw_bitmap(boi_1_pequeno, largura, altura, 0);
+				if(direcao2 == BAIXO) al_draw_bitmap(boi_1_pequeno, largura, altura, 0);
+				else al_draw_bitmap(boi_1_pequenoUp, largura, altura, 0);
 				break;
 			case BOI_2:
-				al_draw_bitmap(boi_2_pequeno, largura, altura, 0);
+				if(direcao2 == BAIXO) al_draw_bitmap(boi_2_pequeno, largura, altura, 0);
+				else al_draw_bitmap(boi_2_pequenoUp, largura, altura, 0);
 				break;
 			case BOI_3:
-				al_draw_bitmap(boi_3_pequeno, largura, altura, 0);
+				if(direcao2 == BAIXO) al_draw_bitmap(boi_3_pequeno, largura, altura, 0);
+				else al_draw_bitmap(boi_3_pequenoUp, largura, altura, 0);
 				break;
 			case BOI_4:
-				al_draw_bitmap(boi_4_pequeno, largura, altura, 0);
+				if(direcao2 == BAIXO) al_draw_bitmap(boi_4_pequeno, largura, altura, 0);
+				else al_draw_bitmap(boi_4_pequenoUp, largura, altura, 0);
 				break;
 		}
 	}else if(estado == ESQUERDA){
 		switch(boi){
 			case BOI_1:
-				al_draw_bitmap(boi_1_pequeno, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+				if(direcao2 == BAIXO) al_draw_bitmap(boi_1_pequeno, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+				else al_draw_bitmap(boi_1_pequenoUp, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
 				break;
 			case BOI_2:
-				al_draw_bitmap(boi_2_pequeno, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+				if(direcao2 == BAIXO) al_draw_bitmap(boi_2_pequeno, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+				else al_draw_bitmap(boi_2_pequenoUp, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
 				break;
 			case BOI_3:
-				al_draw_bitmap(boi_3_pequeno, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+				if(direcao2 == BAIXO) al_draw_bitmap(boi_3_pequeno, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+				else al_draw_bitmap(boi_3_pequenoUp, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
 				break;
 			case BOI_4:
-				al_draw_bitmap(boi_4_pequeno, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+				if(direcao2 == BAIXO) al_draw_bitmap(boi_4_pequeno, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+				else al_draw_bitmap(boi_4_pequenoUp, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
 				break;
 		}
 	}else if(estado == ATACANDO){
 		switch(boi){
 			case BOI_1:
 				if(direcao == DIREITA){
-					al_draw_bitmap(boi_1_ataque, largura, altura, 0);
+					if(ataque == ATAQUE_1) al_draw_bitmap(boi_1_ataqueUp, largura, altura, 0);
+					else al_draw_bitmap(boi_1_ataque, largura, altura, 0);
 				}else{
-					al_draw_bitmap(boi_1_ataque, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+					if(ataque == ATAQUE_1) al_draw_bitmap(boi_1_ataqueUp, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+					else al_draw_bitmap(boi_1_ataque, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
 				}
 				break;
 			case BOI_2:
 				if(direcao == DIREITA){
-					al_draw_bitmap(boi_1_ataque, largura, altura, 0);
+					if(ataque == ATAQUE_1) al_draw_bitmap(boi_2_ataqueUp, largura, altura, 0);
+					else al_draw_bitmap(boi_2_ataque, largura, altura, 0);
 				}else{
-					al_draw_bitmap(boi_1_ataque, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+					if(ataque == ATAQUE_1) al_draw_bitmap(boi_2_ataqueUp, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+					else al_draw_bitmap(boi_2_ataque, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
 				}
 				break;
 			case BOI_3:
 				if(direcao == DIREITA){
-					al_draw_bitmap(boi_1_ataque, largura, altura, 0);
+					if(ataque == ATAQUE_1) al_draw_bitmap(boi_3_ataqueUp, largura, altura, 0);
+					else al_draw_bitmap(boi_3_ataque, largura, altura, 0);
 				}else{
-					al_draw_bitmap(boi_1_ataque, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+					if(ataque == ATAQUE_1) al_draw_bitmap(boi_3_ataqueUp, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+					else al_draw_bitmap(boi_3_ataque, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
 				}
 				break;
 			case BOI_4:
 				if(direcao == DIREITA){
-					al_draw_bitmap(boi_1_ataque, largura, altura, 0);
+					if(ataque == ATAQUE_1) al_draw_bitmap(boi_4_ataqueUp, largura, altura, 0);
+					else al_draw_bitmap(boi_4_ataque, largura, altura, 0);
 				}else{
-					al_draw_bitmap(boi_1_ataque, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+					if(ataque == ATAQUE_1) al_draw_bitmap(boi_4_ataqueUp, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
+					else al_draw_bitmap(boi_4_ataque, largura, altura, ALLEGRO_FLIP_HORIZONTAL);
 				}
 				break;
 		}
@@ -288,7 +306,7 @@ void printPlayers(Player * lista_jogadores){
 	for(i=0;i<MAX_CLIENTS;i++){
 		if(strcmp(lista_jogadores[i].login,"") != 0){
 			//al_draw_filled_circle(LARGURA/22*(2*(float)lista_jogadores[i].posicao.x+1),ALTURA/22*(2*(float)lista_jogadores[i].posicao.y+1), 10, cor);
-			printGameCharacter(lista_jogadores[i].personagem,58+32*(float)lista_jogadores[i].posicao.x, 64+32*(float) lista_jogadores[i].posicao.y, lista_jogadores[i].estado, lista_jogadores[i].direcao);
+			printGameCharacter(lista_jogadores[i].personagem,58+32*(float)lista_jogadores[i].posicao.x, 64+32*(float) lista_jogadores[i].posicao.y, lista_jogadores[i].estado, lista_jogadores[i].direcao, lista_jogadores[i].direcao2, lista_jogadores[1].ataque);
 		}
 	}
 }

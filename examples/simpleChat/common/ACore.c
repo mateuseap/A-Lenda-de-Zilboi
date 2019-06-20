@@ -329,6 +329,54 @@ bool loadGraphics()
         //fprintf(stderr, "Falha carregando background\n");
         return false;
     }
+    boi_1_pequenoUp = al_load_bitmap("examples/simpleChat/Resources/Tilesets/boi_1_pequenoUp.png");
+    if (!boi_1_pequeno)
+    {
+        //fprintf(stderr, "Falha carregando background\n");
+        return false;
+    }
+    boi_2_pequenoUp = al_load_bitmap("examples/simpleChat/Resources/Tilesets/boi_2_pequenoUp.png");
+    if (!boi_2_pequeno)
+    {
+        //fprintf(stderr, "Falha carregando background\n");
+        return false;
+    }
+    boi_3_pequenoUp = al_load_bitmap("examples/simpleChat/Resources/Tilesets/boi_3_pequenoUp.png");
+    if (!boi_3_pequeno)
+    {
+        //fprintf(stderr, "Falha carregando background\n");
+        return false;
+    }
+    boi_4_pequenoUp = al_load_bitmap("examples/simpleChat/Resources/Tilesets/boi_4_pequenoUp.png");
+    if (!boi_4_pequeno)
+    {
+        //fprintf(stderr, "Falha carregando background\n");
+        return false;
+    }
+    boi_1_ataqueUp = al_load_bitmap("examples/simpleChat/Resources/Tilesets/boi_1_ataqueUp.png");
+    if (!boi_1_ataque)
+    {
+        //fprintf(stderr, "Falha carregando background\n");
+        return false;
+    }
+    boi_2_ataqueUp = al_load_bitmap("examples/simpleChat/Resources/Tilesets/boi_2_ataqueUp.png");
+    if (!boi_2_ataque)
+    {
+        //fprintf(stderr, "Falha carregando background\n");
+        return false;
+    }
+    boi_3_ataqueUp = al_load_bitmap("examples/simpleChat/Resources/Tilesets/boi_3_ataqueUp.png");
+    if (!boi_3_ataque)
+    {
+        //fprintf(stderr, "Falha carregando background\n");
+        return false;
+    }
+    boi_4_ataqueUp = al_load_bitmap("examples/simpleChat/Resources/Tilesets/boi_4_ataqueUp.png");
+    if (!boi_4_ataque)
+    {
+        //fprintf(stderr, "Falha carregando background\n");
+        return false;
+    }
     derrota = al_load_bitmap("examples/simpleChat/Resources/Tilesets/teladerrota.png");
     if (!derrota)
     {

@@ -41,10 +41,18 @@ ALLEGRO_BITMAP* boi_1_pequeno;
 ALLEGRO_BITMAP* boi_2_pequeno;
 ALLEGRO_BITMAP* boi_3_pequeno;
 ALLEGRO_BITMAP* boi_4_pequeno;
+ALLEGRO_BITMAP* boi_1_pequenoUp;
+ALLEGRO_BITMAP* boi_2_pequenoUp;
+ALLEGRO_BITMAP* boi_3_pequenoUp;
+ALLEGRO_BITMAP* boi_4_pequenoUp;
 ALLEGRO_BITMAP* boi_1_ataque;
 ALLEGRO_BITMAP* boi_2_ataque;
 ALLEGRO_BITMAP* boi_3_ataque;
 ALLEGRO_BITMAP* boi_4_ataque;
+ALLEGRO_BITMAP* boi_1_ataqueUp;
+ALLEGRO_BITMAP* boi_2_ataqueUp;
+ALLEGRO_BITMAP* boi_3_ataqueUp;
+ALLEGRO_BITMAP* boi_4_ataqueUp;
 ALLEGRO_BITMAP* vitoria;
 ALLEGRO_BITMAP* derrota;
 //========================

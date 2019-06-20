@@ -4,7 +4,7 @@
 #include <string.h>
 
 #define LOGIN_MAX_SIZE 13
-#define MAX_CLIENTS 4
+#define MAX_CLIENTS 2
 #define MAX_HP 500
 
 #define NENHUM 'p'
@@ -42,6 +42,7 @@ typedef struct Player{
     int personagem; //é um personagem de define igual BOI_X, em que X está no intervalo [1,4]
     int blocked; //número de frames em que o boi vai executar uma animacao de levar dano, ficando sem poder executar acoes
     char direcao; //indica a direcao que o boi está virado
+    char direcao2;
     Pos posicao; //posicao (x,y) que o boi está
 }Player;
 
@@ -97,6 +98,7 @@ Player defaultPlayer(int id_player){
 	    break;
   }
   temp.direcao = DIREITA;
+  temp.direcao2 = CIMA;
   return temp;
 }
 
@@ -129,6 +131,10 @@ void movePlayer(Player * playerList, int id, int xi, int yi, int xd, int yd){
   }
   if(playerList[id].movimento == DIREITA || playerList[id].movimento == ESQUERDA) {
     playerList[id].direcao = playerList[id].movimento;
+  }else{
+    if(playerList[id].movimento == CIMA || playerList[id].movimento == BAIXO){
+      playerList[id].direcao2 = playerList[id].movimento;
+    }
   }
   playerList[id].movimento = NENHUM;
 }
